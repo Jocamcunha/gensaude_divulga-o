@@ -25,12 +25,6 @@ A landing page é organizada em uma única página com navegação por âncoras:
 - **Joaquim Meirelles Cunha**
 - **Kauê Santana Morales**
 
-## Acessibilidade e responsividade
-
-O site inclui marcação semântica, menu com atributos acessíveis, link para pular ao conteúdo, navegação por teclado e preferência por movimento reduzido (`prefers-reduced-motion`).
-
-O layout se adapta a desktop, tablet e celular.
-
 ## Observação importante
 
 A página é **informativa e acadêmica**: não oferece diagnóstico, consulta, triagem médica automatizada nem serviço oficial do SUS.
