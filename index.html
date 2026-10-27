@@ -1,0 +1,813 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#073d43" />
+
+  <meta name="description" content="Conheça o GenSaúde SUS: um projeto acadêmico que une educação em saúde, histórico familiar e orientação sobre o uso da rede pública de saúde." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="GenSaúde SUS — Prevenir começa com informação" />
+  <meta property="og:description" content="Conheça um projeto que conecta prevenção, histórico familiar e orientação sobre o SUS." />
+
+  <title>GenSaúde SUS — Prevenir começa com informação</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23073d43'/%3E%3Cpath d='M18 17c25 0 25 30 0 30M46 17c-25 0-25 30 0 30M20 22h24M17 32h30M20 42h24' fill='none' stroke='%2388e5ce' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ÍCONES SVG -->
+  <svg
+    aria-hidden="true"
+    style="position:absolute;width:0;height:0;overflow:hidden"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol id="icon-dna" viewBox="0 0 32 32">
+      <path d="M7 4c18 0 18 24 0 24M25 4C7 4 7 28 25 28M9 8h14M7 16h18M9 24h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14m-7-7 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-external" viewBox="0 0 24 24">
+      <path d="M13 5h6v6M19 5l-9 9M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-heart" viewBox="0 0 24 24">
+      <path d="M20.5 8.5c0 5-8.5 11-8.5 11s-8.5-6-8.5-11a4.5 4.5 0 0 1 8.5-2 4.5 4.5 0 0 1 8.5 2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-pulse" viewBox="0 0 24 24">
+      <path d="M2 12h4l3-7 5 14 3-7h5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-route" viewBox="0 0 24 24">
+      <circle cx="6" cy="5" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M6 7v7c0 4 12 0 12 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="m15 17 3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+      <path d="m12 2 8 4v6c0 5-4 8-8 10-4-2-8-5-8-10V6l8-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="m8 12 3 3 5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon-book" viewBox="0 0 24 24">
+      <path d="M12 6c-3-2-6-2-9-1v14c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1Zm0 0v14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-hospital" viewBox="0 0 24 24">
+      <rect x="4" y="3" width="16" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 6v7m-3.5-3.5h7M9 21v-5h6v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon-person" viewBox="0 0 24 24">
+      <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M4.5 21c0-4.4 3.2-7 7.5-7s7.5 2.6 7.5 7" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+
+    <symbol id="icon-info" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 11v5m0-8v.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon-home" viewBox="0 0 24 24">
+      <path d="m3 11 9-8 9 8v9H3v-9Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M9 20v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+
+    <symbol id="icon-list" viewBox="0 0 24 24">
+      <path d="M9 6h12M9 12h12M9 18h12M3 6h2M3 12h2M3 18h2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="m5 5 14 14M19 5 5 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon-leaf" viewBox="0 0 24 24">
+      <path d="M20 4C8 3 4 9 4 15a5 5 0 0 0 5 5c7 0 12-6 11-16ZM4 20c5-6 9-9 14-11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <a class="skip-link" href="#conteudo">
+    Pular para o conteúdo
+  </a>
+
+  <header class="site-header">
+    <div class="container nav-inner">
+
+      <a class="brand" href="#inicio" aria-label="GenSaúde SUS, ir ao início">
+        <span class="brand-mark">
+          <svg aria-hidden="true" viewBox="0 0 32 32" style="color:#a5efd6">
+            <use href="#icon-dna"/>
+          </svg>
+        </span>
+        <span>
+          gen<span style="color:#0f9a7a">saúde</span><span class="sus">SUS</span>
+        </span>
+      </a>
+
+      <nav id="main-navigation" class="nav-links" aria-label="Navegação principal">
+        <a href="#desafio">O desafio</a>
+        <a href="#solucao">Nossa solução</a>
+        <a href="#funcionamento">Como funciona</a>
+        <a href="#sobre">Sobre o grupo</a>
+        <a class="nav-cta" href="https://github.com/J0a0m/GenSaude" target="_blank" rel="noopener noreferrer">
+          Ver no GitHub ↗
+        </a>
+      </nav>
+
+      <button type="button" class="menu-toggle"
+        aria-controls="main-navigation"
+        aria-expanded="false"
+        aria-label="Abrir menu">
+        <svg aria-hidden="true"><use href="#icon-menu"/></svg>
+      </button>
+
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+      <div class="container hero-layout">
+
+        <div class="hero-copy">
+          <span class="eyebrow mint">
+            Ciência, tecnologia e saúde pública
+          </span>
+
+          <h1 id="hero-title">
+            Prevenção começa com
+            <span>informação.</span>
+          </h1>
+
+          <p class="intro">
+            Conheça o GenSaúde SUS, uma proposta que conecta
+            histórico familiar, educação em saúde e orientação
+            sobre os serviços públicos para colocar o cuidado
+            mais cedo na jornada das pessoas.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#solucao">
+              Conheça o projeto
+              <svg aria-hidden="true"><use href="#icon-arrow"/></svg>
+            </a>
+
+            <a class="btn btn-outline"
+               href="https://github.com/J0a0m/GenSaude"
+               target="_blank"
+               rel="noopener noreferrer">
+              Explorar código
+              <svg aria-hidden="true"><use href="#icon-external"/></svg>
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span class="line" aria-hidden="true"></span>
+            Um projeto acadêmico voltado à prevenção e ao SUS
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Ilustração da interface do GenSaúde SUS">
+
+          <div class="hero-orbit" aria-hidden="true">
+            <svg viewBox="0 0 550 550">
+              <g fill="none" stroke="#8bd8c1" stroke-width="1">
+                <circle cx="275" cy="275" r="235" stroke-opacity=".17"/>
+                <circle cx="275" cy="275" r="200" stroke-opacity=".14"/>
+                <circle cx="275" cy="275" r="163" stroke-opacity=".12"/>
+              </g>
+              <path d="M0 285c110-90 185-50 275 0s175 80 275 0"
+                    stroke="#90ddc6" stroke-width="2"
+                    stroke-opacity=".18" fill="none"/>
+            </svg>
+          </div>
+
+          <div class="floating-tag top">
+            <svg aria-hidden="true"><use href="#icon-dna"/></svg>
+            Histórico familiar
+          </div>
+
+          <div class="app-card" aria-hidden="true">
+
+            <div class="app-topbar">
+              <div class="app-mini-brand">
+                <span class="mini-icon">
+                  <svg style="width:17px;height:17px">
+                    <use href="#icon-dna"/>
+                  </svg>
+                </span>
+                gensaúde
+              </div>
+
+              <span class="app-avatar">
+                <svg style="width:16px;height:16px">
+                  <use href="#icon-person"/>
+                </svg>
+              </span>
+            </div>
+
+            <div class="app-greeting">
+              Olá, bem-vindo(a) 👋
+            </div>
+
+            <p class="app-title">
+              Sua saúde merece<br>
+              atenção desde já.
+            </p>
+
+            <div class="overview-card">
+              <div class="overview-icon">
+                <svg><use href="#icon-heart"/></svg>
+              </div>
+              <div>
+                <strong>Conheça seu histórico</strong>
+                <p>
+                  Informação para cuidar melhor de você
+                  e da sua família.
+                </p>
+              </div>
+            </div>
+
+            <div class="app-row-header">
+              <strong>Explore os conteúdos</strong>
+              <span>Ver todos →</span>
+            </div>
+
+            <div class="app-small-card">
+              <span class="app-small-icon">
+                <svg style="width:19px;height:19px">
+                  <use href="#icon-dna"/>
+                </svg>
+              </span>
+
+              <span>
+                <strong>Saúde e hereditariedade</strong>
+                <span>Entenda o papel da família na prevenção</span>
+              </span>
+            </div>
+
+            <div class="app-small-card">
+              <span class="app-small-icon lime">
+                <svg style="width:19px;height:19px">
+                  <use href="#icon-hospital"/>
+                </svg>
+              </span>
+
+              <span>
+                <strong>Quando procurar uma UBS?</strong>
+                <span>Encontre o cuidado mais adequado</span>
+              </span>
+            </div>
+
+            <div class="app-bottom">
+              <span><svg><use href="#icon-home"/></svg> Início</span>
+              <span><svg><use href="#icon-book"/></svg> Aprender</span>
+              <span><svg><use href="#icon-route"/></svg> Rede SUS</span>
+              <span><svg><use href="#icon-person"/></svg> Perfil</span>
+            </div>
+          </div>
+
+          <div class="floating-tag bottom">
+            <svg aria-hidden="true"><use href="#icon-shield"/></svg>
+            Mais prevenção
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="highlights" aria-label="Áreas de atuação do projeto">
+      <div class="container highlights-layout">
+
+        <div class="highlight">
+          <svg aria-hidden="true"><use href="#icon-dna"/></svg>
+          <div>
+            <strong>Histórico familiar</strong>
+            <span>Compreender fatores hereditários</span>
+          </div>
+        </div>
+
+        <div class="highlight">
+          <svg aria-hidden="true"><use href="#icon-book"/></svg>
+          <div>
+            <strong>Educação em saúde</strong>
+            <span>Informação clara e acessível</span>
+          </div>
+        </div>
+
+        <div class="highlight">
+          <svg aria-hidden="true"><use href="#icon-route"/></svg>
+          <div>
+            <strong>Orientação sobre o SUS</strong>
+            <span>Conhecer os caminhos do cuidado</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <section id="desafio" class="section problem"
+             aria-labelledby="challenge-heading">
+      <div class="container">
+
+        <div class="section-heading" data-reveal>
+          <span class="eyebrow green">O desafio</span>
+
+          <h2 id="challenge-heading">
+            Grandes desafios pedem novas formas de cuidar.
+          </h2>
+
+          <p>
+            O projeto parte de três questões que dificultam
+            o acesso consciente à saúde e a construção de
+            uma rotina preventiva.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+
+          <article class="problem-card" data-reveal>
+            <div class="problem-num">
+              <span>01 / DESAFIO</span>
+              <span class="problem-icon">
+                <svg aria-hidden="true"><use href="#icon-hospital"/></svg>
+              </span>
+            </div>
+            <h3>Sobrecarga nas UPAs</h3>
+            <p>
+              Quando os diferentes serviços de saúde não são
+              bem compreendidos, a busca por atendimento
+              pode se concentrar em unidades de urgência.
+            </p>
+          </article>
+
+          <article class="problem-card" data-reveal>
+            <div class="problem-num">
+              <span>02 / DESAFIO</span>
+              <span class="problem-icon">
+                <svg aria-hidden="true"><use href="#icon-clock"/></svg>
+              </span>
+            </div>
+            <h3>Cuidado tardio</h3>
+            <p>
+              Sem ações de prevenção e acompanhamento,
+              problemas de saúde podem receber atenção
+              apenas quando os sintomas já se agravaram.
+            </p>
+          </article>
+
+          <article class="problem-card" data-reveal>
+            <div class="problem-num">
+              <span>03 / DESAFIO</span>
+              <span class="problem-icon">
+                <svg aria-hidden="true"><use href="#icon-book"/></svg>
+              </span>
+            </div>
+            <h3>Falta de informação</h3>
+            <p>
+              Muita gente não conhece seu histórico familiar
+              ou as diferenças entre os serviços oferecidos
+              pela rede pública de saúde.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="solucao" class="section solution"
+             aria-labelledby="solution-heading">
+      <div class="container">
+
+        <div class="solution-top" data-reveal>
+          <div>
+            <span class="eyebrow green">Nossa proposta</span>
+            <h2 id="solution-heading">
+              Dois caminhos. Um propósito:
+              <span style="color:#148d75">cuidar antes.</span>
+            </h2>
+          </div>
+
+          <p>
+            O GenSaúde SUS foi pensado como uma ponte
+            entre conhecimento, autonomia e acesso
+            orientado aos serviços de saúde.
+          </p>
+        </div>
+
+        <div class="pillar-grid">
+
+          <article class="pillar" data-reveal>
+            <div class="pillar-top">
+              <span class="pillar-number">PILAR 01</span>
+              <span class="pillar-symbol">
+                <svg aria-hidden="true"><use href="#icon-dna"/></svg>
+              </span>
+            </div>
+
+            <h3>Conhecimento sobre riscos hereditários</h3>
+
+            <p>
+              Estimular a compreensão de condições presentes
+              no histórico familiar, como hipertensão e diabetes,
+              e promover escolhas mais informadas para a prevenção.
+            </p>
+
+            <a class="pillar-link" href="#funcionamento">
+              Entenda a jornada
+              <svg aria-hidden="true"><use href="#icon-arrow"/></svg>
+            </a>
+          </article>
+
+          <article class="pillar" data-reveal>
+            <div class="pillar-top">
+              <span class="pillar-number">PILAR 02</span>
+              <span class="pillar-symbol">
+                <svg aria-hidden="true"><use href="#icon-route"/></svg>
+              </span>
+            </div>
+
+            <h3>Orientação sobre os serviços do SUS</h3>
+
+            <p>
+              Ajudar o cidadão a compreender o papel da UBS
+              e da UPA, incentivando o acompanhamento preventivo
+              na Atenção Primária quando apropriado.
+            </p>
+
+            <a class="pillar-link" href="#rede">
+              Conheça a rede
+              <svg aria-hidden="true"><use href="#icon-arrow"/></svg>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="funcionamento" class="section journey"
+             aria-labelledby="journey-heading">
+      <div class="container journey-grid">
+
+        <div data-reveal>
+          <span class="eyebrow green">Como funciona</span>
+
+          <h2 id="journey-heading">
+            Uma jornada pensada para a prevenção.
+          </h2>
+
+          <p class="lead">
+            O projeto propõe uma experiência simples,
+            educativa e voltada a aproximar o cidadão
+            das informações de que precisa.
+          </p>
+        </div>
+
+        <div class="journey-list">
+
+          <div class="journey-step" data-reveal>
+            <span class="step-number">01</span>
+            <div class="step-body">
+              <h3>Compreender o histórico familiar</h3>
+              <p>
+                Reconhecer a presença de condições de saúde na
+                família e entender por que essas informações
+                podem ser relevantes para o cuidado.
+              </p>
+            </div>
+          </div>
+
+          <div class="journey-step" data-reveal>
+            <span class="step-number">02</span>
+            <div class="step-body">
+              <h3>Aprender sobre prevenção</h3>
+              <p>
+                Ter acesso a conteúdos acessíveis sobre riscos
+                hereditários, hábitos de saúde e a importância
+                do acompanhamento profissional.
+              </p>
+            </div>
+          </div>
+
+          <div class="journey-step" data-reveal>
+            <span class="step-number">03</span>
+            <div class="step-body">
+              <h3>Conhecer os serviços certos</h3>
+              <p>
+                Entender onde buscar acompanhamento de rotina
+                e como identificar situações em que o atendimento
+                de urgência é necessário.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="rede" class="section services"
+             aria-labelledby="services-heading">
+      <div class="container service-layout">
+
+        <div class="service-copy" data-reveal>
+          <span class="eyebrow green">Conhecer para acessar</span>
+
+          <h2 id="services-heading">
+            UBS ou UPA? Entenda a diferença.
+          </h2>
+
+          <p>
+            Parte importante da prevenção é saber como a rede
+            pública de saúde se organiza. Os serviços têm papéis
+            complementares — e compreender isso ajuda a buscar
+            o atendimento adequado.
+          </p>
+
+          <p class="emphasis">
+            O GenSaúde SUS quer tornar essa orientação
+            mais simples e acessível.
+          </p>
+
+          <a class="btn btn-dark" href="#sobre">
+            Conheça nossa iniciativa
+            <svg aria-hidden="true"><use href="#icon-arrow"/></svg>
+          </a>
+        </div>
+
+        <div class="service-compare" data-reveal>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg aria-hidden="true"><use href="#icon-heart"/></svg>
+            </div>
+
+            <div>
+              <span class="service-label">Atenção Primária</span>
+              <h3>UBS — Unidade Básica de Saúde</h3>
+              <p>
+                É uma importante porta de entrada do SUS para
+                vacinação, consultas, acompanhamento de doenças
+                crônicas, ações preventivas e outros cuidados contínuos.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon urgent">
+              <svg aria-hidden="true"><use href="#icon-pulse"/></svg>
+            </div>
+
+            <div>
+              <span class="service-label urgent">
+                Urgência e Emergência
+              </span>
+              <h3>UPA — Unidade de Pronto Atendimento</h3>
+              <p>
+                Atende situações que precisam de avaliação mais
+                imediata, como sintomas agudos e condições que
+                exigem atendimento de urgência.
+              </p>
+            </div>
+          </article>
+
+          <p class="service-footnote">
+            <svg aria-hidden="true"><use href="#icon-info"/></svg>
+            Conteúdo educativo. O site não realiza triagem clínica
+            ou diagnóstico. Em situações de emergência, acione
+            o SAMU pelo 192.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section about"
+             aria-labelledby="about-heading">
+      <div class="container about-layout">
+
+        <div data-reveal>
+          <span class="eyebrow green">Sobre o projeto</span>
+
+          <h2 id="about-heading">
+            Tecnologia com propósito social.
+          </h2>
+
+          <p>
+            O GenSaúde SUS é uma iniciativa acadêmica desenvolvida
+            na área de <strong>Ciências e suas Tecnologias</strong>.
+            Parte da observação de desafios reais da saúde pública
+            para investigar como ferramentas digitais podem contribuir
+            para a educação em saúde e a prevenção.
+          </p>
+
+          <p>
+            Durante o desenvolvimento, o grupo reformulou sua
+            proposta inicial e construiu uma nova direção em equipe —
+            uma experiência de colaboração, adaptação e pensamento
+            científico aplicado à realidade brasileira.
+          </p>
+
+          <div class="about-tags">
+            <span>Ciência</span>
+            <span>Inovação digital</span>
+            <span>Saúde pública</span>
+            <span>Prevenção</span>
+          </div>
+        </div>
+
+        <aside class="team-panel"
+               aria-label="Integrantes do projeto"
+               data-reveal>
+
+          <div class="team-panel-head">
+            <h3>Quem constrói o GenSaúde</h3>
+            <span>05 INTEGRANTES</span>
+          </div>
+
+          <ol class="team-list">
+
+            <li class="team-member">
+              <span class="team-index" aria-hidden="true">01</span>
+              <strong>Arthur Ribeiro Araújo</strong>
+            </li>
+
+            <li class="team-member">
+              <span class="team-index" aria-hidden="true">02</span>
+              <strong>Hadan Ferreira Desidério</strong>
+            </li>
+
+            <li class="team-member">
+              <span class="team-index" aria-hidden="true">03</span>
+              <strong>João Marcelo Boock Pagano</strong>
+            </li>
+
+            <li class="team-member">
+              <span class="team-index" aria-hidden="true">04</span>
+              <strong>Joaquim Meirelles Cunha</strong>
+            </li>
+
+            <li class="team-member">
+              <span class="team-index" aria-hidden="true">05</span>
+              <strong>Kauê Santana Morales</strong>
+            </li>
+
+          </ol>
+        </aside>
+
+      </div>
+    </section>
+
+    <section class="section faq" aria-labelledby="faq-heading">
+      <div class="container faq-layout">
+
+        <div data-reveal>
+          <span class="eyebrow green">Dúvidas frequentes</span>
+          <h2 id="faq-heading">
+            Mais informação, menos dúvida.
+          </h2>
+          <p class="intro-faq">
+            Alguns pontos importantes sobre a proposta do GenSaúde SUS.
+          </p>
+        </div>
+
+        <div class="faq-list" data-reveal>
+
+          <details>
+            <summary>O GenSaúde SUS substitui uma consulta médica?</summary>
+            <p>
+              Não. A proposta é educativa e preventiva, e não pretende
+              realizar diagnóstico ou substituir a avaliação de
+              profissionais de saúde.
+            </p>
+          </details>
+
+          <details>
+            <summary>Histórico familiar significa que terei uma doença?</summary>
+            <p>
+              Não. Ter familiares com determinadas condições pode ser
+              um fator de risco, mas não determina que alguém desenvolverá
+              a mesma doença. Há diversos fatores envolvidos e a
+              avaliação individual deve ser feita por profissionais qualificados.
+            </p>
+          </details>
+
+          <details>
+            <summary>O GenSaúde oferece atendimento de saúde?</summary>
+            <p>
+              O GenSaúde SUS é um projeto acadêmico de educação
+              e prevenção em saúde. Seus materiais estão disponíveis
+              para consulta no repositório público do projeto.
+              Ele não oferece atendimento clínico.
+            </p>
+          </details>
+
+          <details>
+            <summary>Onde posso conhecer o desenvolvimento do projeto?</summary>
+            <p>
+              O código e os materiais públicos do projeto estão
+              disponíveis no GitHub, pelo link apresentado no
+              cabeçalho e no final desta página.
+            </p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-labelledby="cta-heading">
+      <div class="container final-cta-inner">
+
+        <h2 id="cta-heading">
+          Uma saúde pública mais consciente começa com
+          <span>informação acessível.</span>
+        </h2>
+
+        <a class="btn btn-primary"
+           href="https://github.com/J0a0m/GenSaude"
+           target="_blank"
+           rel="noopener noreferrer">
+          Acompanhe o projeto no GitHub
+          <svg aria-hidden="true"><use href="#icon-external"/></svg>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <a class="brand" href="#inicio"
+           aria-label="GenSaúde SUS, voltar ao início">
+          <span class="brand-mark">
+            <svg aria-hidden="true"
+                 viewBox="0 0 32 32"
+                 style="color:#a5efd6">
+              <use href="#icon-dna"/>
+            </svg>
+          </span>
+
+          <span>
+            gen<span style="color:#8de6c9">saúde</span><span class="sus" style="color:#0b4b4a">SUS</span>
+          </span>
+        </a>
+
+        <div class="footer-nav">
+          <a href="#desafio">O desafio</a>
+          <a href="#solucao">Solução</a>
+          <a href="#rede">UBS e UPA</a>
+          <a href="#sobre">Sobre</a>
+          <a href="https://github.com/J0a0m/GenSaude"
+             target="_blank"
+             rel="noopener noreferrer">
+            GitHub ↗
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © <span id="year">2026</span> GenSaúde SUS.
+          Projeto acadêmico de caráter educativo.
+        </p>
+
+        <p>
+          Não é um serviço oficial do Ministério da Saúde
+          nem substitui orientação médica.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+
+</body>
+</html>
